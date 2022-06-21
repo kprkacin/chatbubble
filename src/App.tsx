@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Avatar } from './components/Avatar/Avatar';
+import { ChatModal } from './components/ChatModal/ChatModal';
 
 function App() {
+  const [open, setOpen] = useState(false)
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,8 +20,15 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Chat
+          Click to chat
         </a>
+        <Avatar
+          onClick = {()=>setOpen((old)=>{return !old})}
+        />
+        <ChatModal
+        open = {open}
+        setOpen = {setOpen}
+        />
       </header>
     </div>
   );
