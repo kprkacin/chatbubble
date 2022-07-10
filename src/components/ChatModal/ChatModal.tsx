@@ -1,5 +1,6 @@
 import { Transition, Dialog } from "@headlessui/react";
 import React, { Fragment, useRef, useState } from "react";
+import { Avatar } from "../Avatar/Avatar";
 import { Chat } from "./Chat";
 
 export const ChatModal: React.FC<ChatModalProps> = (props) => {
@@ -41,12 +42,36 @@ export const ChatModal: React.FC<ChatModalProps> = (props) => {
                 <div className="bg-white">
                   <div className="sm:flex sm:items-start w-full">
                     <div className="mt-3 text-center sm:mt-0  sm:text-left w-full">
-                      <Dialog.Title
-                        as="h3"
-                        className="text-3xl leading-6 font-medium text-gray-900"
-                      >
-                        Chat
-                      </Dialog.Title>
+                      <div className="flex p-4 items-center justify-between">
+                        <div className="flex items-center">
+                          <Avatar />
+                          <Dialog.Title
+                            as="h3"
+                            className="text-xl ml-10 leading-6 font-medium text-gray-900"
+                          >
+                            Messaging with -BLANK-
+                          </Dialog.Title>
+                        </div>
+                        <button
+                          type="submit"
+                          className=" hover:text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </button>
+                      </div>
                       <Chat />
                     </div>
                   </div>
